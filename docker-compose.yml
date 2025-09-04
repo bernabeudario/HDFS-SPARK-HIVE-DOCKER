@@ -107,6 +107,7 @@ services:
       - "8081:8081"
     environment:
       - "SPARK_MASTER=spark://spark-master:7077"
+      - "SPARK_WORKER_MEMORY=1g"
       - CORE_CONF_fs_defaultFS=hdfs://namenode:9000
     depends_on:
       - spark-master
@@ -125,6 +126,7 @@ services:
       - "8082:8081"
     environment:
       - "SPARK_MASTER=spark://spark-master:7077"
+      - "SPARK_WORKER_MEMORY=1g"
       - CORE_CONF_fs_defaultFS=hdfs://namenode:9000
     depends_on:
       - spark-master
@@ -143,6 +145,7 @@ services:
       - "8083:8081"
     environment:
       - "SPARK_MASTER=spark://spark-master:7077"
+      - "SPARK_WORKER_MEMORY=1g"
       - CORE_CONF_fs_defaultFS=hdfs://namenode:9000
     depends_on:
       - spark-master
@@ -161,6 +164,7 @@ services:
       - "8084:8081"
     environment:
       - "SPARK_MASTER=spark://spark-master:7077"
+      - "SPARK_WORKER_MEMORY=1g"
       - CORE_CONF_fs_defaultFS=hdfs://namenode:9000
     depends_on:
       - spark-master
