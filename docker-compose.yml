@@ -21,6 +21,7 @@ services:
       - CORE_CONF_fs_defaultFS=hdfs://namenode:9000
     volumes:
       - ./conf/init-hdfs.sh:/init-hdfs.sh
+      - hdfs_init_data:/hadoop/dfs/name
     command: ["/bin/bash", "/init-hdfs.sh"]
 
   resourcemanager:
@@ -205,6 +206,8 @@ services:
     container_name: hive-metastore-postgresql
     ports:
       - "5432:5432"
+    volumes:
+      - hive_metastore_db:/var/lib/postgresql/data
 
 volumes:
   hdfs_namenode:
@@ -212,3 +215,5 @@ volumes:
   hdfs_datanode2:
   hdfs_datanode3:
   hadoop_historyserver:
+  hive_metastore_db:
+  hdfs_init_data:
