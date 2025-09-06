@@ -7,7 +7,7 @@ if __name__ == "__main__":
         .master("spark://spark-master:7077") \
         .getOrCreate()
 
-    # 1) 1) Generar el DataFrame
+    # 1) Generar el DataFrame
     sample_data = [
         ("Registro 1", 1),
         ("Registro 2", 2),
@@ -22,5 +22,6 @@ if __name__ == "__main__":
     # 3) Consultar la vista 'v_registros' 
     spark.sql("SELECT * FROM v_registros WHERE id > 1 ORDER BY nombre DESC").show()
     print("=" * 30)
+
 
     spark.stop()
