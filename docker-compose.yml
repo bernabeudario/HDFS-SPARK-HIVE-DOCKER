@@ -100,6 +100,7 @@ services:
       - namenode
     volumes:
       - ./spark-apps:/opt/spark-apps
+      - ./conf/spark-defaults.conf:/spark/conf/spark-defaults.conf
 
   spark-worker-node-1:
     image: bde2020/spark-worker:3.0.0-hadoop3.2
@@ -114,6 +115,7 @@ services:
       - spark-master
     volumes:
       - ./spark-apps:/opt/spark-apps
+      - ./conf/spark-defaults.conf:/spark/conf/spark-defaults.conf
     deploy:
       resources:
         limits:
@@ -133,6 +135,7 @@ services:
       - spark-master
     volumes:
       - ./spark-apps:/opt/spark-apps
+      - ./conf/spark-defaults.conf:/spark/conf/spark-defaults.conf
     deploy:
       resources:
         limits:
@@ -152,6 +155,7 @@ services:
       - spark-master
     volumes:
       - ./spark-apps:/opt/spark-apps
+      - ./conf/spark-defaults.conf:/spark/conf/spark-defaults.conf
     deploy:
       resources:
         limits:
@@ -171,6 +175,7 @@ services:
       - spark-master
     volumes:
       - ./spark-apps:/opt/spark-apps
+      - ./conf/spark-defaults.conf:/spark/conf/spark-defaults.conf
     deploy:
       resources:
         limits:
@@ -189,6 +194,8 @@ services:
       SERVICE_PRECONDITION: "hive-metastore:9083"
     ports:
       - "10000:10000"
+    volumes:
+      - ./hive-examples:/opt/hive-examples
 
   hive-metastore:
     image: bde2020/hive:2.3.2-postgresql-metastore
